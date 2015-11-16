@@ -1,0 +1,300 @@
+object FormKakuro: TFormKakuro
+  Left = 357
+  Height = 600
+  Top = 26
+  Width = 800
+  AutoSize = True
+  BorderStyle = bsSingle
+  Caption = 'kakuro'
+  ClientHeight = 600
+  ClientWidth = 800
+  Color = clWhite
+  Font.CharSet = ANSI_CHARSET
+  Font.Height = -21
+  Font.Name = 'Segoe Script'
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
+  Font.Style = [fsBold, fsItalic]
+  OnCreate = FormCreate
+  LCLVersion = '1.4.4.0'
+  object PanelMainMenu: TPanel
+    Left = 0
+    Height = 600
+    Top = 0
+    Width = 800
+    Align = alClient
+    ClientHeight = 600
+    ClientWidth = 800
+    TabOrder = 0
+    object ImageMain: TImage
+      Left = 1
+      Height = 598
+      Top = 1
+      Width = 798
+      Align = alClient
+      Center = True
+    end
+    object LabelPlay: TLabel
+      Cursor = crHandPoint
+      Left = 310
+      Height = 45
+      Top = 200
+      Width = 160
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'играть'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -32
+      Font.Name = 'Segoe Script'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold, fsItalic]
+      ParentColor = False
+      ParentFont = False
+      OnClick = LabelPlayClick
+      OnMouseLeave = LabelMouseLeave
+      OnMouseMove = LabelMouseMove
+    end
+    object LabelRules: TLabel
+      Cursor = crHandPoint
+      Left = 310
+      Height = 45
+      Top = 260
+      Width = 160
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'правила'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -32
+      Font.Name = 'Segoe Script'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold, fsItalic]
+      ParentColor = False
+      ParentFont = False
+      OnClick = LabelRulesClick
+      OnMouseLeave = LabelMouseLeave
+      OnMouseMove = LabelMouseMove
+    end
+    object LabelExit: TLabel
+      Cursor = crHandPoint
+      Left = 310
+      Height = 45
+      Top = 320
+      Width = 160
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'выход'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -32
+      Font.Name = 'Segoe Script'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold, fsItalic]
+      ParentColor = False
+      ParentFont = False
+      OnClick = LabelExitClick
+      OnMouseLeave = LabelMouseLeave
+      OnMouseMove = LabelMouseMove
+    end
+  end
+  object PanelRules: TPanel
+    Left = 0
+    Height = 600
+    Top = 0
+    Width = 800
+    Align = alClient
+    ClientHeight = 600
+    ClientWidth = 800
+    TabOrder = 1
+    Visible = False
+    object ImageRules: TImage
+      Left = 1
+      Height = 598
+      Top = 1
+      Width = 798
+      Align = alClient
+    end
+    object MemoRules: TMemo
+      Left = 368
+      Height = 598
+      Top = 1
+      Width = 431
+      Alignment = taCenter
+      Font.CharSet = RUSSIAN_CHARSET
+      Font.Height = -21
+      Font.Name = 'Times New Roman'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold, fsItalic]
+      ParentFont = False
+      ScrollBars = ssAutoVertical
+      TabOrder = 0
+    end
+    object LabelBack: TLabel
+      Left = 88
+      Height = 34
+      Top = 472
+      Width = 209
+      Caption = 'закрыть правила'
+      ParentColor = False
+      OnClick = LabelBackClick
+      OnMouseLeave = LabelMouseLeave
+      OnMouseMove = LabelMouseMove
+    end
+    object ImageExample: TImage
+      Left = 96
+      Height = 200
+      Top = 184
+      Width = 180
+    end
+    object ImageHint: TImage
+      Left = 101
+      Height = 30
+      Top = 80
+      Width = 170
+    end
+    object LabelHint: TLabel
+      Left = 96
+      Height = 34
+      Top = 42
+      Width = 180
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'подсказка'
+      ParentColor = False
+    end
+    object LabelExample: TLabel
+      Left = 96
+      Height = 34
+      Top = 136
+      Width = 180
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'пример'
+      ParentColor = False
+    end
+  end
+  object PanelLevels: TPanel
+    Left = 0
+    Height = 600
+    Top = 0
+    Width = 800
+    Align = alClient
+    ClientHeight = 600
+    ClientWidth = 800
+    TabOrder = 2
+    Visible = False
+    object ImageLevels: TImage
+      Left = 1
+      Height = 598
+      Top = 1
+      Width = 798
+      Align = alClient
+    end
+    object LabelEasy: TLabel
+      Left = 300
+      Height = 45
+      Top = 165
+      Width = 185
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'легкий'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -24
+      Font.Name = 'Segoe Script'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold, fsItalic]
+      ParentColor = False
+      ParentFont = False
+      OnMouseLeave = LabelMouseLeave
+      OnMouseMove = LabelMouseMove
+    end
+    object LabelNormal: TLabel
+      Left = 300
+      Height = 45
+      Top = 215
+      Width = 185
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'нормальный'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -24
+      Font.Name = 'Segoe Script'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold, fsItalic]
+      ParentColor = False
+      ParentFont = False
+      OnMouseLeave = LabelMouseLeave
+      OnMouseMove = LabelMouseMove
+    end
+    object LabelHard: TLabel
+      Left = 300
+      Height = 45
+      Top = 265
+      Width = 185
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'трудный'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -24
+      Font.Name = 'Segoe Script'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold, fsItalic]
+      ParentColor = False
+      ParentFont = False
+      OnMouseLeave = LabelMouseLeave
+      OnMouseMove = LabelMouseMove
+    end
+    object LabelGeneration: TLabel
+      Left = 300
+      Height = 45
+      Top = 315
+      Width = 185
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'сгенерировать'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -24
+      Font.Name = 'Segoe Script'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold, fsItalic]
+      ParentColor = False
+      ParentFont = False
+      OnMouseLeave = LabelMouseLeave
+      OnMouseMove = LabelMouseMove
+    end
+    object LabelBackMainMenu: TLabel
+      Left = 300
+      Height = 45
+      Top = 365
+      Width = 185
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'назад в меню'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -24
+      Font.Name = 'Segoe Script'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold, fsItalic]
+      ParentColor = False
+      ParentFont = False
+      OnClick = LabelBackMainMenuClick
+      OnMouseLeave = LabelMouseLeave
+      OnMouseMove = LabelMouseMove
+    end
+  end
+end
