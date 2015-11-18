@@ -22,18 +22,43 @@ procedure write_kakuro_info;
 var
   i, j: integer;
 begin
-  crt.ClrScr;
-  writeln('type');
-  for i := 1 to size do  begin writeln; for j := 1 to size do if(kakuro[i, j].btype = 1) then begin crt.TextBackground(crt.LightGray); write(kakuro[i, j].btype:2); crt.TextBackground(white); end else  write(kakuro[i, j].btype:2);  end;
+  crt.ClrScr;  
+  writeln('value-rigth');
+  for i := 1 to size do  begin 
+  writeln;
+  for j := 1 to size do if (kakuro[i, j].btype = 1) then begin 
+                          crt.TextBackground(crt.LightGray);
+                          write(kakuro[i, j].bvalue2:3);
+                          crt.TextBackground(white); 
+                        end
+                        else if (kakuro[i, j].btype = 0) then begin 
+                          crt.TextBackground(crt.Yellow);
+                          write(kakuro[i, j].bvalue2:3);
+                          crt.TextBackground(white); 
+                        end
+                        else write(kakuro[i, j].bvalue2:3); end;
+  
+  
+  writeln;
+ writeln('value-down');
+  for i := 1 to size do  begin 
   writeln;
   
-  writeln('value-rigth');
-  for i := 1 to size do  begin writeln; for j := 1 to size do if (kakuro[i, j].btype = 1) then begin crt.TextBackground(crt.LightGray); write(kakuro[i, j].bvalue2:2); crt.TextBackground(white); end else write(kakuro[i, j].bvalue2:2); end;
+  for j := 1 to size do if (kakuro[i, j].btype = 1) then begin 
+                          crt.TextBackground(crt.LightGray);
+                          write(kakuro[i, j].bvalue1:3);
+                          crt.TextBackground(white); 
+                        end
+                        else if (kakuro[i, j].btype = 0) then begin 
+                          crt.TextBackground(crt.Yellow);
+                          write(kakuro[i, j].bvalue1:3);
+                          crt.TextBackground(white); 
+                        end
+                        else write(kakuro[i, j].bvalue2:3); end;
+  
+  
   writeln;
-  {
-  writeln('value-down');
-  for i := 1 to size do  begin writeln; for j := 1 to size do write(kakuro[i, j].bvalue1:2); end;
-  writeln; }
+   
   readkey;
 end;
 
@@ -192,27 +217,82 @@ end;
 
 procedure generate_numbers;
 type digit=1..9;
-var i,j,d:integer;
-  s:set of digit;
-  count:integer;
-  
-begin
-randomize;
-  for i:= 1 to size do for j:= 1 to size do
-    if kakuro[i,j].btype=1 then begin
+var  i,j,m,p:integer;
+     s,o:set of digit;
+     count:integer;
+     f,q:boolean;
+begin      
+    for i:= 1 to size do for j:= 1 to size do
+    if (kakuro[i,j].btype=1) or (kakuro[i,j].btype=0) then begin
       s:=[];
       count:=0;
-      d:=j+1;
-      while (d<=size) and( count<9) and(kakuro[i,d].btype=2) do begin
+      m:=j+1;
+      f:=true;
+      
+      while (m<=size) and (count<9) and f do begin
+        if ( kakuro[i,j].btype=0)  and (i=1) then f:=false else
+        if (kakuro[i,m].btype=1) then f:=false 
+        else begin
+          o:=[];
+          p:=i;
+          q:=true;
+          while (p>=1) and (q) do begin
+          
+            if (kakuro[p,m].btype=1) or (kakuro[i,j].btype=0)  then q:=false else
+            begin
+              o+=[kakuro[p,m].bvalue2];
+              p-=1;
+            end;
+          end;
           repeat
-            kakuro[i,d].bvalue2:=random(9)+1;
-          until not(kakuro[i,d].bvalue2 in s);
-          s+=[kakuro[i,d].bvalue2];
+            kakuro[i,m].bvalue2:=random(9)+1;
+          until not (kakuro[i,m].bvalue2 in s) and not (kakuro[i,m].bvalue2 in o);
+          s+=[kakuro[i,m].bvalue2];
           count+=1;
-          d+=1;
-      end;
-    end;
+          m+=1;
+        end;
+      end;      
+    end;        
 end;
+
+
+
+  procedure values_right;
+  var i,j,m:integer;
+      sum:integer;
+  begin
+    for i:= 1 to size do 
+      for j := 1 to size do 
+        if (kakuro[i,j].btype=1) or (kakuro[i,j].btype=0) then  begin
+          sum:=0;
+          m:=j+1;
+          while (kakuro[i,m].btype<>1) and (m<=size) do begin
+            sum+=kakuro[i,m].bvalue2;
+            m+=1;
+          end;
+          kakuro[i,j].bvalue2:=sum;
+        end;
+  end;
+  
+  procedure values_down;
+  var i,j,m:integer;
+      sum:integer;
+  begin
+    for j:= 1 to size do 
+      for i := 1 to size do 
+        if (kakuro[i,j].btype=1) or (kakuro[i,j].btype=0) then  begin
+          sum:=0;
+          m:=i+1;
+          while (kakuro[m,j].btype<>1) and (kakuro[m,j].btype<>0) and (m<=size) do begin
+            sum+=kakuro[m,j].bvalue2;
+            m+=1;
+          end;
+          kakuro[i,j].bvalue1:=sum;
+        end;
+  end;
+
+
+
 begin
   crt.TextBackground(white);
   crt.TextColor(black);
@@ -221,9 +301,11 @@ begin
       crt.ClrScr;
       write('ввести size- ');
       readln(size);
-    until (size >= 5) and (size <= 12);
-    generation;    
-    generate_numbers;   
+    until (size >= 4) and (size <= 10);
+    generation; 
+    generate_numbers;
+    values_right;
+    values_down;
     write_kakuro_info;
   until size < 0;
 end.
