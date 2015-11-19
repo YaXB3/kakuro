@@ -67,19 +67,7 @@ type
             bvalue1,bvalue2:integer;
             bstatus:integer;
        end;
-        blocksdoc= record
-            btype:string;
-            bvalue1,bvalue2:string[1];
-            bstatus:string[20];
-       end;
 
-       Kakuro_document= record
-                         difficult:string;// сложность easy-1 normal-2 hard-3
-                         lvl:string[2];//  номер уровня
-                         size:string[2];//размер игровой области size x size
-                         best_ten:array[1..10] of players;  // 10 игроков имя-время
-                         components:array[1..maximum,1..maximum] of blocksdoc;  // структура уровня
-        end;
    var  best_players:array[1..10] of players;      //для отображения лучших 10 игроков
         components:array[1..maximum,1..maximum] of TEdit;                             // для создания динамических объектов для игры
         kakuro:array[1..maximum,1..maximum] of blocks;                                //для записи в массив данных на основе которых буддет строиться components

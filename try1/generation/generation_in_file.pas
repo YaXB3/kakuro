@@ -209,8 +209,12 @@ var
   counter:integer;
 begin
   randomize;
-  
-  //----- обнулили массив
+  for i:= 1 to size do  for j:= 1 to size do begin  
+        kakuro[i, j].btype := 0;
+        kakuro[i, j].bvalue1 := 0;
+        kakuro[i, j].bvalue2 := 0;  
+      end;
+
   for i := 1 to size do 
   begin
     kakuro[1, i].btype := 0;
@@ -220,7 +224,7 @@ begin
     kakuro[i, 1].bvalue1 := 0;
     kakuro[i, 1].bvalue2 := 0;
   end;     
-  //----- обнулили массив
+  
   
   mirrow := size - 1 div 2; 
   for i := 2 to  mirrow do 
@@ -319,7 +323,7 @@ begin
       end; 
       repeat
         kakuro[i,j].bvalue2:=random(9)+1;
-      until not (kakuro[i,j].bvalue2 in s);
+      until not (kakuro[i,j].bvalue2 in s); 
    end; 
     values_right;
     values_down;
@@ -336,9 +340,11 @@ begin
       write('ввести size- ');
       readln(size);    
     if size >0  then begin
-    generation;   
-    generate_numbers;
     
+    
+    
+    generation;   
+    generate_numbers;    
     write_kakuro_info;
    writeln('save? (y/n)');    
        if( readkey='y') then begin
