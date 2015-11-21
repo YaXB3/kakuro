@@ -1,0 +1,116 @@
+object Form1: TForm1
+  Left = 208
+  Height = 498
+  Top = 100
+  Width = 808
+  HorzScrollBar.Page = 741
+  HorzScrollBar.Range = 741
+  HorzScrollBar.Visible = False
+  VertScrollBar.Page = 498
+  VertScrollBar.Range = 499
+  VertScrollBar.Visible = False
+  Caption = 'Form1'
+  ClientHeight = 498
+  ClientWidth = 808
+  LCLVersion = '1.4.4.0'
+  object Panel1: TPanel
+    Left = 0
+    Height = 498
+    Top = 0
+    Width = 808
+    Align = alClient
+    ClientHeight = 498
+    ClientWidth = 808
+    Color = clWhite
+    ParentColor = False
+    TabOrder = 0
+    object Panel2: TPanel
+      Left = 1
+      Height = 58
+      Top = 1
+      Width = 806
+      Align = alTop
+      ClientHeight = 58
+      ClientWidth = 806
+      TabOrder = 0
+      object Label1: TLabel
+        Left = 24
+        Height = 25
+        Top = 8
+        Width = 170
+        Alignment = taCenter
+        AutoSize = False
+        Caption = 'text'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -16
+        Font.Name = '@Microsoft JhengHei UI'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsItalic]
+        ParentColor = False
+        ParentFont = False
+      end
+      object Label2: TLabel
+        Left = 568
+        Height = 25
+        Top = 8
+        Width = 170
+        Alignment = taCenter
+        AutoSize = False
+        Caption = 'text'
+        Color = clDefault
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -16
+        Font.Name = '@Microsoft JhengHei UI'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsItalic]
+        ParentColor = False
+        ParentFont = False
+        Transparent = False
+      end
+      object Button1: TButton
+        Tag = 1
+        Left = 224
+        Height = 25
+        Top = 10
+        Width = 75
+        Caption = 'Button1'
+        OnClick = ButtonClick
+        TabOrder = 0
+      end
+      object Button2: TButton
+        Tag = 2
+        Left = 312
+        Height = 25
+        Top = 10
+        Width = 75
+        Caption = 'Button2'
+        OnClick = ButtonClick
+        TabOrder = 1
+      end
+      object Button3: TButton
+        Tag = 3
+        Left = 408
+        Height = 25
+        Top = 10
+        Width = 75
+        Caption = 'Button3'
+        OnClick = ButtonClick
+        TabOrder = 2
+      end
+    end
+    object ScrollBox1: TScrollBox
+      Left = 1
+      Height = 439
+      Top = 59
+      Width = 806
+      HorzScrollBar.Page = 1
+      VertScrollBar.Page = 1
+      Align = alTop
+      Font.CharSet = 4
+      ParentFont = False
+      TabOrder = 1
+    end
+  end
+end
