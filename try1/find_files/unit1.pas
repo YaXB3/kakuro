@@ -22,6 +22,8 @@ type
     Panel2: TPanel;
     ScrollBox1: TScrollBox;
     procedure ButtonClick(Sender: TObject);
+    procedure LabelClick(Sender: TObject);
+    procedure PanelClick(Sender: TObject);
   private
     { private declarations }
       bp:array[1..10] of TPanel;
@@ -45,13 +47,10 @@ procedure TForm1.ButtonClick(Sender: TObject);
 
 var a:string;Info : TSearchRec;
     i:integer;
-
-
     cp:TPanel;
     Cl:TLabel;
-    cb:TLabel;
 begin
-  case    TButton(Sender).Tag of
+  case TButton(Sender).Tag of
    1:Form1.Label1.Caption:='easy';
    2:Form1.Label1.Caption:='normal';
    3:Form1.Label1.Caption:='hard';
@@ -69,47 +68,34 @@ begin
 
           Repeat
               If (Info.Attr and faAnyFile)=32 then  begin
-               cp:=TPanel.Create(self);
-               with cp do begin
-                   align:=altop;
-                   height:=50;
-                   color:=clwhite;
-                   parent:=Form1.scrollbox1;
-               end;
+                       cp:=TPanel.Create(self);
+                     with cp do begin
+                         align:=altop;
+                         height:=50;
+                         color:=clwhite;
+                         onclick:=@PanelClick;
+                         caption:=info.Name;
+                         parent:=Form1.scrollbox1;
+                     end;
                   form1.bp[i]:=cp;
 
-               cl:=Tlabel.Create(self);
-               with cl do begin
-                   left:=10;
-                   width:=80;
-                   caption:=info.Name[1];
-                   parent:=form1.bp[i];
-               end;
-               form1.bl[i]:=cl;
-
-               cb:=Tlabel.create(self);
-               with cb do begin
-                 left:=100;
-                 width:=100;
-                 caption:='play';
-                 autosize:=false;
-                 alignment:=taCenter;
-                 parent:=form1.bp[i];
-               end;
-                form1.bb[i]:=cb;
-
-              cb:=Tlabel.create(self);
-               with cb do begin
-                 left:=205;
-                 width:=100;
-                 caption:='info';
-                 autosize:=false;    //add information / best time
-                 alignment:=taCenter;
-                 parent:=form1.bp[i];
-               end;
-                form1.bi[i]:=cb;
-
-                  i+=1;
+                  cl:=Tlabel.Create(self);
+                 with cl do begin
+                     left:=2;
+                     top:=2;
+                     width:=45;
+                     height:=46;
+                     alignment:=tacenter;
+                     font.Color:=clwhite;
+                     font.Size:=24;
+                     autosize:=false;
+                     onclick:=@labelclick;
+                     Color:=$00FE637A;
+                     caption:='i';
+                     parent:=form1.bp[i];
+                 end;
+                 form1.bl[i]:=cl;
+                      i+=1;
               end;
           Until (FindNext(info)<>0);
           FindClose(Info);
@@ -120,6 +106,34 @@ begin
 
 end;
 
+procedure TForm1.LabelClick(Sender: TObject);
+var  players:array[1..10] of string=(
+    'lolik1 12:34:25',
+    'lolik2 12:34:25',
+    'lolik3 12:34:25',
+    'lolik4 12:34:25',
+    'lolik5 12:34:25',
+    'lolik6 12:34:25',
+    'lolik7 12:34:25',
+    'lolik8 12:34:25',
+    'lolik9 12:34:25',
+    'lolik0 12:34:25'
+    );
+
+begin
+  showmessage(players[1]+#13+players[2]+#13+players[3]+#13+players[4]+#13+players[5]+#13+players[6]+#13+players[7]+#13+players[8]+#13+players[9]+#13+players[10]);
+end;
+
+procedure TForm1.PanelClick(Sender: TObject);
+var a:string;
+    filelvl:file;
+    i:integer;
+
+begin
+    a:=TPanel(sender).Caption;
+     showmessage(a);
+end;
+
 
 
 
@@ -127,4 +141,5 @@ end;
 
 
 end.
+
 

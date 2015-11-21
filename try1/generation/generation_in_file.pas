@@ -252,7 +252,6 @@ begin
     sides_lr;    
     center;  
    counters;
-  
 end;
 
 
@@ -298,33 +297,36 @@ var  i,j,m,p:integer;
      s,o:set of digit;
      f,q:boolean;
 begin      
-    for i:= 1 to size do for j:= 1 to size do
+    for i:= 2 to size do for j:= 2 to size do
     if (kakuro[i,j].btype=2) then begin
+    
+    
+    
       s:=[];     
       m:=i;     
       while (kakuro[m,j].btype=2) and (m<=size) do begin 
-        s+=[kakuro[m,j].bvalue2];
+        if not(kakuro[m,j].bvalue2 in s) then s+=[kakuro[m,j].bvalue2];
         m+=1;
-      end;  
+      end;        
      m:=i;
-     while (kakuro[m,j].btype=2) and (m>=1) do begin 
-        s+=[kakuro[m,j].bvalue2];
+     while (kakuro[m,j].btype=2) and (m>=2) do begin 
+       if not(kakuro[m,j].bvalue2 in s) then  s+=[kakuro[m,j].bvalue2];
         m-=1;
-      end;  
+      end;        
      m:=j;
      while (kakuro[i,m].btype=2) and (m<=size) do begin 
-        s+=[kakuro[i,m].bvalue2];
+        if not(kakuro[m,j].bvalue2 in s) then s+=[kakuro[i,m].bvalue2];
         m+=1;
-      end; 
+      end;       
        m:=j;
-     while (kakuro[i,m].btype=2) and (m>=1) do begin 
-        s+=[kakuro[i,m].bvalue2];
+     while (kakuro[i,m].btype=2) and (m>=2) do begin 
+       if not(kakuro[m,j].bvalue2 in s) then  s+=[kakuro[i,m].bvalue2];
         m-=1;
-      end; 
+      end;       
       repeat
         kakuro[i,j].bvalue2:=random(9)+1;
-      until not (kakuro[i,j].bvalue2 in s); 
-   end; 
+      until not (kakuro[i,j].bvalue2 in s);   
+  end;
     values_right;
     values_down;
 end;
@@ -346,7 +348,7 @@ begin
     generation;   
     generate_numbers;    
     write_kakuro_info;
-   writeln('save? (y/n)');    
+   {writeln('save? (y/n)');    
        if( readkey='y') then begin
         
         writeln('name of file');
@@ -380,7 +382,7 @@ begin
                 writeln(files,a);              
               end;         
         close (files);
-       end;  
+       end;}  
     end;
   until size < 0;
   crt.ClrScr;
