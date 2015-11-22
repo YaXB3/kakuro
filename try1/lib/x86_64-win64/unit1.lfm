@@ -1,7 +1,7 @@
 object FormKakuro: TFormKakuro
-  Left = 159
+  Left = 491
   Height = 600
-  Top = 52
+  Top = 36
   Width = 800
   AutoSize = True
   BorderIcons = []
@@ -17,6 +17,7 @@ object FormKakuro: TFormKakuro
   Font.Quality = fqDraft
   Font.Style = [fsBold, fsItalic]
   OnCreate = FormCreate
+  Position = poDesktopCenter
   LCLVersion = '1.4.4.0'
   object PanelMainMenu: TPanel
     Left = 0
@@ -305,11 +306,11 @@ object FormKakuro: TFormKakuro
       OnMouseMove = LabelMouseMove
     end
     object PanelGeneration: TPanel
-      Left = 216
-      Height = 83
-      Top = 504
+      Left = 230
+      Height = 82
+      Top = 470
       Width = 336
-      ClientHeight = 83
+      ClientHeight = 82
       ClientWidth = 336
       Color = clWindowFrame
       ParentColor = False
@@ -462,19 +463,19 @@ object FormKakuro: TFormKakuro
     Visible = False
     object PanelButtons: TPanel
       Left = 1
-      Height = 151
-      Top = 448
+      Height = 120
+      Top = 479
       Width = 798
       Align = alBottom
-      ClientHeight = 151
+      ClientHeight = 120
       ClientWidth = 798
       Color = clWhite
       ParentColor = False
       TabOrder = 0
       object LabelBtn1: TLabel
-        Left = 8
+        Left = 1
         Height = 40
-        Top = 8
+        Top = 0
         Width = 40
         Alignment = taCenter
         AutoSize = False
@@ -490,13 +491,14 @@ object FormKakuro: TFormKakuro
         ParentColor = False
         ParentFont = False
         Transparent = False
+        OnClick = LabelBtnsClick
         OnMouseLeave = LabelMouseLeave
         OnMouseMove = LabelMouseMove
       end
       object LabelBtn2: TLabel
-        Left = 56
+        Left = 42
         Height = 40
-        Top = 8
+        Top = 0
         Width = 40
         Alignment = taCenter
         AutoSize = False
@@ -512,13 +514,14 @@ object FormKakuro: TFormKakuro
         ParentColor = False
         ParentFont = False
         Transparent = False
+        OnClick = LabelBtnsClick
         OnMouseLeave = LabelMouseLeave
         OnMouseMove = LabelMouseMove
       end
       object LabelBtn3: TLabel
-        Left = 104
+        Left = 83
         Height = 40
-        Top = 8
+        Top = 0
         Width = 40
         Alignment = taCenter
         AutoSize = False
@@ -534,13 +537,14 @@ object FormKakuro: TFormKakuro
         ParentColor = False
         ParentFont = False
         Transparent = False
+        OnClick = LabelBtnsClick
         OnMouseLeave = LabelMouseLeave
         OnMouseMove = LabelMouseMove
       end
       object LabelBtn4: TLabel
-        Left = 8
+        Left = 1
         Height = 40
-        Top = 56
+        Top = 41
         Width = 40
         Alignment = taCenter
         AutoSize = False
@@ -556,13 +560,14 @@ object FormKakuro: TFormKakuro
         ParentColor = False
         ParentFont = False
         Transparent = False
+        OnClick = LabelBtnsClick
         OnMouseLeave = LabelMouseLeave
         OnMouseMove = LabelMouseMove
       end
       object LabelBtn5: TLabel
-        Left = 56
+        Left = 42
         Height = 40
-        Top = 56
+        Top = 41
         Width = 40
         Alignment = taCenter
         AutoSize = False
@@ -578,13 +583,14 @@ object FormKakuro: TFormKakuro
         ParentColor = False
         ParentFont = False
         Transparent = False
+        OnClick = LabelBtnsClick
         OnMouseLeave = LabelMouseLeave
         OnMouseMove = LabelMouseMove
       end
       object LabelBtn6: TLabel
-        Left = 104
+        Left = 83
         Height = 40
-        Top = 56
+        Top = 41
         Width = 40
         Alignment = taCenter
         AutoSize = False
@@ -600,13 +606,14 @@ object FormKakuro: TFormKakuro
         ParentColor = False
         ParentFont = False
         Transparent = False
+        OnClick = LabelBtnsClick
         OnMouseLeave = LabelMouseLeave
         OnMouseMove = LabelMouseMove
       end
       object LabelBtn7: TLabel
-        Left = 8
+        Left = 1
         Height = 40
-        Top = 104
+        Top = 82
         Width = 40
         Alignment = taCenter
         AutoSize = False
@@ -622,13 +629,14 @@ object FormKakuro: TFormKakuro
         ParentColor = False
         ParentFont = False
         Transparent = False
+        OnClick = LabelBtnsClick
         OnMouseLeave = LabelMouseLeave
         OnMouseMove = LabelMouseMove
       end
       object LabelBtn8: TLabel
-        Left = 56
+        Left = 42
         Height = 40
-        Top = 104
+        Top = 82
         Width = 40
         Alignment = taCenter
         AutoSize = False
@@ -644,35 +652,14 @@ object FormKakuro: TFormKakuro
         ParentColor = False
         ParentFont = False
         Transparent = False
-        OnMouseLeave = LabelMouseLeave
-        OnMouseMove = LabelMouseMove
-      end
-      object LabelBtn9: TLabel
-        Left = 104
-        Height = 40
-        Top = 104
-        Width = 40
-        Alignment = taCenter
-        AutoSize = False
-        Caption = '9'
-        Color = clWindowFrame
-        Font.CharSet = ANSI_CHARSET
-        Font.Color = clWhite
-        Font.Height = -21
-        Font.Name = 'Segoe Script'
-        Font.Pitch = fpVariable
-        Font.Quality = fqDraft
-        Font.Style = [fsBold, fsItalic]
-        ParentColor = False
-        ParentFont = False
-        Transparent = False
+        OnClick = LabelBtnsClick
         OnMouseLeave = LabelMouseLeave
         OnMouseMove = LabelMouseMove
       end
       object LabelInfo: TLabel
-        Left = 208
+        Left = 184
         Height = 40
-        Top = 32
+        Top = 8
         Width = 40
         Alignment = taCenter
         AutoSize = False
@@ -692,9 +679,9 @@ object FormKakuro: TFormKakuro
         OnMouseMove = LabelMouseMove
       end
       object LabelHelp: TLabel
-        Left = 280
+        Left = 248
         Height = 40
-        Top = 32
+        Top = 8
         Width = 40
         Alignment = taCenter
         AutoSize = False
@@ -714,9 +701,9 @@ object FormKakuro: TFormKakuro
         OnMouseMove = LabelMouseMove
       end
       object LabelBackToChoose: TLabel
-        Left = 656
+        Left = 624
         Height = 40
-        Top = 56
+        Top = 32
         Width = 125
         Alignment = taCenter
         AutoSize = False
@@ -737,10 +724,10 @@ object FormKakuro: TFormKakuro
         OnMouseMove = LabelMouseMove
       end
       object LabelShowRules: TLabel
-        Left = 208
+        Left = 184
         Height = 42
-        Top = 80
-        Width = 112
+        Top = 54
+        Width = 104
         Alignment = taCenter
         AutoSize = False
         Caption = 'правила'
@@ -755,14 +742,14 @@ object FormKakuro: TFormKakuro
         ParentColor = False
         ParentFont = False
         Transparent = False
-        OnClick = LabelShowRulesClick
+        OnClick = LabelRulesClick
         OnMouseLeave = LabelMouseLeave
         OnMouseMove = LabelMouseMove
       end
       object LabelTimer: TLabel
-        Left = 352
+        Left = 296
         Height = 50
-        Top = 46
+        Top = 30
         Width = 274
         Alignment = taCenter
         AutoSize = False
@@ -776,6 +763,29 @@ object FormKakuro: TFormKakuro
         Font.Style = [fsBold, fsItalic]
         ParentColor = False
         ParentFont = False
+      end
+      object LabelBtn9: TLabel
+        Left = 83
+        Height = 40
+        Top = 82
+        Width = 40
+        Alignment = taCenter
+        AutoSize = False
+        Caption = '9'
+        Color = clWindowFrame
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -21
+        Font.Name = 'Segoe Script'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold, fsItalic]
+        ParentColor = False
+        ParentFont = False
+        Transparent = False
+        OnClick = LabelBtnsClick
+        OnMouseLeave = LabelMouseLeave
+        OnMouseMove = LabelMouseMove
       end
     end
   end

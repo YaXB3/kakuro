@@ -226,8 +226,8 @@ begin
   end;     
   
   
-  mirrow := size - 1 div 2; 
-  for i := 2 to  mirrow do 
+  mirrow := (size - 1) div 2; 
+  for i := 2 to  mirrow+1 do 
     repeat
       count := 0;
       for j := 2 to size do 
@@ -235,22 +235,21 @@ begin
         kakuro[i, j].btype := random(2) + 1;
         if (kakuro[i, j].btype = 1) then count += 1;
         kakuro[size + 2 - i, size + 2 - j].btype := kakuro[i, j].btype;      
-      end;
-    until count < size div 2;   
-  if size - 1 mod 2 = 1 then begin
-    inc(mirrow);
-    for j := 2 to size do 
-    begin
-      kakuro[mirrow, j].btype := random(2) + 1;
-      kakuro[size + 2 - mirrow, size + 2 - j].btype := kakuro[mirrow, j].btype;      
-    end;  
-  end;
- 
+      end;      
+    until count < size div 2;  
     
-    corners;
-    sides_tb;
-    sides_lr;    
-    center;  
+  if (size - 1) mod 2 = 1 then begin
+    inc(mirrow);
+    for j := 2 to (size div 2)+(size mod 2) do 
+    begin
+      kakuro[mirrow+1, j].btype := random(2) + 1;
+      kakuro[mirrow+1, size + 2 - j].btype := kakuro[mirrow+1, j].btype;      
+    end;  
+  end;  
+    corners;  
+    sides_tb;    
+   sides_lr;    
+   center;  
    counters;
 end;
 
@@ -346,7 +345,7 @@ begin
     
     
     generation;   
-    generate_numbers;    
+    //generate_numbers;    
     write_kakuro_info;
    {writeln('save? (y/n)');    
        if( readkey='y') then begin
