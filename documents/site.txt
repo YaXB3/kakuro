@@ -1,1 +1,6 @@
 http://www.kakuro.ru/
+http://www.intuit.ru/studies/courses/3488/730/lecture/25788?page=8
+http://wiki.freepascal.org/Dialog_Examples
+http://wiki.freepascal.org/LCL_Tips#Create_controls_manually_without_overhead
+http://www.delphibasics.ru/FindFirst.php
+
