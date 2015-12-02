@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  StdCtrls, DateUtils;
+  StdCtrls, Menus, DateUtils;
 
 type
 
@@ -53,7 +53,9 @@ type
     LabelRules: TLabel;
     LabelExit: TLabel;
     LabelPlay: TLabel;
+    MainMenuBar: TMainMenu;
     MemoRules: TMemo;
+    MenuItemInfo: TMenuItem;
     PanelButtons: TPanel;
     PanelGame: TPanel;
     PanelChooseLvl: TPanel;
@@ -82,6 +84,7 @@ type
     procedure LabelRulesClick(Sender: TObject);
     procedure LabelMouseMove(Sender: TObject; Shift: TShiftState; X, Y: integer);
     procedure LabelMouseLeave(Sender: TObject);
+    procedure MenuItemInfoClick(Sender: TObject);
     procedure PanelMove(Sender: TObject; Shift: TShiftState; X, Y: integer);
     procedure PanelLeave(Sender: TObject);
     procedure LabelLvlClick(Sender: TObject);
@@ -1229,6 +1232,11 @@ procedure TFormKakuro.LabelMouseLeave(Sender: TObject);
 begin
   if TLabel(Sender).Font.Color <> RGBToColor(255, 136, 18) then
     TLabel(Sender).Font.Color := clwhite;
+end;
+
+procedure TFormKakuro.MenuItemInfoClick(Sender: TObject);
+begin
+  showmessage('автор -рогулев илья'+#13+'версия 1.0'+#13+'автор рисунков Kenny Louie'+#13+'https://www.flickr.com/photos/kwl/');
 end;
 
 {****f* Unit1/TFormKakuro.game_cell_move(Sender: TObject; Shift: TShiftState; X, Y: integer);
